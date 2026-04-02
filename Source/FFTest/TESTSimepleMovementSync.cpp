@@ -1,11 +1,10 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
-
+#include "TESTSimepleMovementSync.h"
 
 #include "TESTSimpleMovementSyncTrait.h"
 #include "MassCommonFragments.h"
 #include "MassCommonTypes.h"
 #include "MassExecutionContext.h"
-#include "TESTSimepleMovementSync.h"
 #include "MassEntityManager.h"
 #include "GameFramework/Actor.h"
 #include "MassActorSubsystem.h"

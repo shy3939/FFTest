@@ -38,7 +38,7 @@ struct FCommandTypeFragment : public FMassFragment
 
 protected:
 	UPROPERTY(Transient)
-	ECommandType Type;
+	ECommandType Type = ECommandType::None;
 };
 
 USTRUCT()
@@ -61,7 +61,7 @@ struct FCommandDataFragment : public FMassSharedFragment
 
 protected:
 	UPROPERTY(Transient)
-	FVector Location;
+	FVector Location = {0,0,0};
 	UPROPERTY(Transient)
 	FMassEntityHandle Target;
 };

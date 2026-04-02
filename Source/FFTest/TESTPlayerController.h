@@ -20,4 +20,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void OnInputClick();
 	
+	UFUNCTION(Server, BlueprintCallable, Reliable)
+	void MulticastMoveCommand(FVector Location);
 };

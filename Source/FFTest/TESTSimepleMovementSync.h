@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "MassTranslator.h"
-
 #include "TESTSimepleMovementSync.generated.h"
 
 UCLASS()

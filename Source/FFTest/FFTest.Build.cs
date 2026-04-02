@@ -29,7 +29,9 @@ public class FFTest : ModuleRules
 			"MassAIBehavior",
 			"MassNavigation",
 			"MassSignals",
-			"GameplayTags"
+			"GameplayTags",
+			"MassReplication",
+			"MassEQS"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });

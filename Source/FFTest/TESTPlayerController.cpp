@@ -43,9 +43,14 @@ void ATESTPlayerController::OnInputClick()
 			return;
 		}
 	}
+	MulticastMoveCommand(LastClickLocation);
 
 
-	UMassEntitySubsystem* EntitySubsystem = GetWorld()->GetSubsystem<UMassEntitySubsystem>();
+}
+
+void ATESTPlayerController::MulticastMoveCommand_Implementation(FVector LastClickLocation)
+{
+		UMassEntitySubsystem* EntitySubsystem = GetWorld()->GetSubsystem<UMassEntitySubsystem>();
 	if (!EntitySubsystem) return;
 
 	FMassEntityManager& EntityManager = EntitySubsystem->GetMutableEntityManager();
@@ -71,7 +76,8 @@ void ATESTPlayerController::OnInputClick()
 					CollectedEntities.Add(Context.GetEntity(i));
 				}
 			});
-
+		
+			UE_LOG(LogMass, Warning, TEXT("%d"), CollectedEntities.Num());
 
 			for (const FMassEntityHandle& Entity : CollectedEntities)
 			{
