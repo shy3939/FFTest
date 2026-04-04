@@ -48,7 +48,6 @@ public:
 			const float DeltaTime = Context.GetWorld()->DeltaTimeSeconds;
 			for (int32 EntityIndex = 0; EntityIndex < Context.GetNumEntities(); ++EntityIndex)
 			{
-				
 				FTESTTransformOffset& TranslationOffset = TranslationOffsets[EntityIndex];
 				if (DeltaTime < Params.MaxTimeToSmooth)
 				{
@@ -56,19 +55,29 @@ public:
 						TranslationOffset.TransformOffset.GetPosition() * (1.0f - DeltaTime / Params.SmoothTime));
 					TranslationOffset.TransformOffset.SetYaw(
 						TranslationOffset.TransformOffset.GetYaw() * (1.0f - DeltaTime / Params.SmoothTime));
+
+					//
+					// FVector CurrentPos = TranslationOffset.TransformOffset.GetPosition();
+					// float Distance = CurrentPos.Size();
+					//
+					// if (Distance > 0.0f)
+					// {
+					// 	float InterpolationSpeed = 100.0f / FMath::Max(Params.SmoothTime, 0.001f);
+					// 	FVector NewPos = FMath::VInterpConstantTo(CurrentPos, FVector::ZeroVector, DeltaTime,
+					// 	                                          InterpolationSpeed);
+					// 	TranslationOffset.TransformOffset.SetPosition(NewPos);
+					// }
+					//
+					// float CurrentYaw = TranslationOffset.TransformOffset.GetYaw();
+					// float YawSpeed = 180.0f / FMath::Max(Params.SmoothTime, 0.001f);
+					// float NewYaw = FMath::FInterpConstantTo(CurrentYaw, 0.0f, DeltaTime, YawSpeed);
+					// TranslationOffset.TransformOffset.SetYaw(NewYaw);
 				}
 				else
 				{
 					TranslationOffset.TransformOffset.SetPosition(FVector::ZeroVector);
 					TranslationOffset.TransformOffset.SetYaw(0.0f);
 				}
-				
-				if (EntityIndex == 0)
-				{
-					UE_LOG(LogTemp, Warning, TEXT("%lf %lf %lf"), TranslationOffset.TransformOffset.GetPosition().X,TranslationOffset.TransformOffset.GetPosition().Y,TranslationOffset.TransformOffset.GetPosition().Z);
-					
-				}
-				
 			}
 		});
 	}

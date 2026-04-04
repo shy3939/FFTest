@@ -15,21 +15,21 @@ struct FFTEST_API FTESTOffsetParams : public FMassConstSharedFragment
 	GENERATED_BODY()  
  
 	/** Maximum time the smoothing can take. If it takes more than this values it will snap to the actual position */  
-	UPROPERTY(EditAnywhere, meta = (UIMin = 0.0f, ClampMin = 0.0f))  
+	UPROPERTY(EditAnywhere, Category = "", meta = (UIMin = 0.0f, ClampMin = 0.0f))  
 	float MaxTimeToSmooth = 1.0f;  
  
 	/** How much time the smooth can take */  
-	UPROPERTY(EditAnywhere, meta = (UIMin = 0.0f, ClampMin = 0.0f))  
-	float SmoothTime = 0.05f;  
+	UPROPERTY(EditAnywhere, Category = "", meta = (UIMin = 0.0f, ClampMin = 0.0f))  
+	float SmoothTime = 0.9f;  
 //	float SmoothTime = 0.2f;  
  
 	/** The tolerated distance to smooth. If the distance is higher the mesh will snap to the actual position. */  
-	UPROPERTY(EditAnywhere, meta = (UIMin = 0.0f, ClampMin = 0.0f))  
-	float MaxSmoothNetUpdateDistance = 50.0f;  
+	UPROPERTY(EditAnywhere, Category = "", meta = (UIMin = 0.0f, ClampMin = 0.0f))  
+	float MaxSmoothNetUpdateDistance = 500.0f;  
  
-	float MaxSmoothNetUpdateDistanceSqr = 2500.0f;  
+	float MaxSmoothNetUpdateDistanceSqr = 250000.0f;  
 	
-	UPROPERTY(EditAnywhere, meta = (UIMin = 0.0f, ClampMin = 0.0f))  
+	UPROPERTY(EditAnywhere, Category = "", meta = (UIMin = 0.0f, ClampMin = 0.0f))  
 	float MaxSmoothNetUpdateYaw = 180.0f;  
  
  
